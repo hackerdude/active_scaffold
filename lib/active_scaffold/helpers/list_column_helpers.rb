@@ -4,6 +4,7 @@ module ActiveScaffold
     # Helpers that assist with the rendering of a List Column
     module ListColumnHelpers
       def get_column_value(record, column)
+        
         # check for an override helper
         value = if column_override? column
           # we only pass the record as the argument. we previously also passed the formatted_value,
@@ -165,7 +166,7 @@ module ActiveScaffold
         if column_empty?(column_value)
           active_scaffold_config.list.empty_field_text
         elsif column_value.is_a?(Time) || column_value.is_a?(Date)
-          l(column_value, :format => options[:format] || :default)
+          l(column_value, :format => options[:format] || '%m-%d-%Y %H:%M:%S')
         else
           column_value.to_s
         end
