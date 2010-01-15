@@ -114,6 +114,7 @@ module ActiveScaffold
             next
           end
 
+          next unless ! controller.nil?
           actions = controller.active_scaffold_config.actions
           column.actions_for_association_links.delete :new unless actions.include? :create
           column.actions_for_association_links.delete :edit unless actions.include? :update
