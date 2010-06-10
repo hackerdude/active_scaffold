@@ -205,7 +205,7 @@ module ActiveScaffold
         value = if column_empty?(column_value)
           active_scaffold_config.list.empty_field_text
         elsif column_value.is_a?(Time) || column_value.is_a?(Date)
-          l(column_value, :format => options[:format] || :default)
+          l(column_value, :format => options[:format] || '%m-%d-%Y %H:%M')
         elsif [FalseClass, TrueClass].include?(column_value.class)
           as_(column_value.to_s.to_sym)
         else
